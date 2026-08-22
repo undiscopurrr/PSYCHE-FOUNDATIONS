@@ -7,7 +7,7 @@ of whether a delivery obligation was met — and of who agreed to it.
 
 ## The problem
 
-A GPU cloud invoices a customer for 10,000 H100-hours delivered over thirty
+A GPU cloud invoices a customer for 1,000 H100-hours delivered over thirty
 days. The customer's scheduler shows 972 hours of usable capacity, 28 hours
 during which memory bandwidth ran below the contracted floor, and three nodes
 that never matched the contracted SKU at all.
@@ -97,14 +97,21 @@ requires it does not survive contact with a real procurement process.
 
 **[Verification Is Not Acceptance: Evidentiary Sufficiency and Settlement
 Authority in Contracted Compute Delivery](yang-verification-is-not-acceptance.pdf)**
-· 34 pages
+· 43 pages
 
 - a threat model in which the fabric operator is untrusted, alongside the two
   commercial counterparties
-- a formal model of the system as a fold over an append-only signed log, with
-  five proved properties: acceptance soundness, confluence under causally
-  consistent reordering, terminal monotonicity, equivocation detectability, and
-  temporal binding
+- a formal model of the system as a fold over an append-only signed log.
+  Acceptance soundness is the central theorem: a settled case implies a
+  counterparty-signed review issued inside a valid grant. Four supporting
+  properties make it usable — confluence under causally consistent reordering,
+  terminal monotonicity, equivocation detectability, and temporal binding — and
+  the last two hold against an untrusted log operator
+- a grant constitution that lives inside the contract profile, under the same
+  digest that pins the standard, bounding what an accepting agent may be
+  delegated. Its default admits one verification outcome, so a buyer who wants
+  an agent to accept whatever the evaluation supports has to write that into the
+  standard in advance, where the counterparty reads it and can decline
 - six enumerated non-derivation invariants, enforced in the event model rather
   than asserted in prose
 - a decomposition of finality into four finalities established independently —
@@ -113,13 +120,13 @@ Authority in Contracted Compute Delivery](yang-verification-is-not-acceptance.pd
   first two for the third
 - an evaluation over a 1,760-case corpus spanning twenty-two conditions
 
-Every table in the paper is produced by a harness and can be regenerated from a
-clean checkout.
+Every table in the paper is emitted by a harness rather than typed in. §8 of the
+paper states what a reader can and cannot check independently.
 
 ## Status
 
 The full contract-to-archive pipeline is implemented and runs end to end:
-139,000 lines of Python with a browser client, 212 test modules, 2,873 test
+140,000 lines of Python with a browser client, 195 test modules, 2,781 test
 functions. The system is not production-hardened and is not deployed anywhere.
 §10.1 of the paper states where the evaluated build departs from the release
 specification.
