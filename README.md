@@ -23,16 +23,14 @@ period, the exclusion list, and the definition of availability itself differ
 between the contract a provider signs with the facility beneath it and the one
 it signs with the customer above — so an operator can recover a fraction of
 monthly rent upstream while owing credits computed against far larger service
-commitments downstream. As of mid-2026 no court has issued a final judgment on
-the merits in a pure AI-cloud SLA dispute. The market has no case law, no
-settled practice, and no neutral record. It has bilateral reconciliation
-conducted in spreadsheets.
+commitments downstream. The market has no settled practice and no neutral
+record. It has bilateral reconciliation conducted in spreadsheets.
 
 ## What PSYCHE does
 
 Both sides' evidence goes in. A signed, replayable record comes out. It states
-what that evidence supports and where it falls short, and the party who pays —
-not the system — decides whether to accept it.
+what that evidence supports and where it falls short, and whether to accept it
+is decided by the party who pays.
 
 For a single delivery period:
 
@@ -52,11 +50,10 @@ between the parties. Neither is a crash, and neither is quietly dropped.
 holding that bundle can replay the evaluation and obtain the same result,
 without access to the original system.
 
-**4 · Evaluate.** The result has four values, not two: the claim is supported;
-the claim is not supported; the *evidence* is at fault, so no verdict on the
-claim is available; or the case requires human review. A verifier that can only
-say yes or no has to guess whenever it cannot decide, and that guess silently
-becomes money.
+**4 · Evaluate.** The result has four values. The claim is supported; the claim
+is not supported; the *evidence* is at fault, so no verdict on the claim is
+available; or the case requires human review. A verifier holding only yes and no
+has to guess whenever it cannot decide, and that guess silently becomes money.
 
 **5 · Stop.** Evaluation produces an assertion about evidence and no authority
 to settle anything. A case reaches a settled state only when a counterparty with
@@ -88,10 +85,10 @@ final step.
 > first cannot discharge the second. Systems that conflate them generate a
 > result no counterparty is obliged to honor.
 
-This is a claim about authority, not about accuracy. A verifier may be entirely
-correct and still lack the standing to bind anyone. No finance function will
-delegate acceptance to a third party's algorithm, which is why a design that
-requires it does not survive contact with a real procurement process.
+This is a claim about authority. A verifier may be entirely correct and still
+lack the standing to bind anyone. No finance function will delegate acceptance
+to a third party's algorithm, which is why a design that requires it does not
+survive contact with a real procurement process.
 
 ## The paper
 
@@ -123,6 +120,20 @@ Authority in Contracted Compute Delivery](yang-verification-is-not-acceptance.pd
 Every table in the paper is emitted by a harness rather than typed in. §8 of the
 paper states what a reader can and cannot check independently.
 
+## The field list
+
+**[Delivery Record Fields for Contracted
+Compute](delivery-record-field-list.pdf)** · 3 pages
+
+What a record has to carry for a party who was absent, holding no account on
+either side, to recompute the period and reach the same number. Six groups: the
+standard pinned before the window, the measurements, the intervals nobody
+observed, provenance, temporal binding, and the line between a claim and a
+decision.
+
+It is the short way into the argument, and it is short enough to check a fleet
+against in an afternoon.
+
 ## Status
 
 The full contract-to-archive pipeline is implemented and runs end to end:
@@ -145,11 +156,11 @@ model in §6 is complete enough to reimplement from.
 
 ## Looking for
 
-**One design partner** — a compute seller with a service-credit dispute that has
+**One design partner.** A compute seller with a service-credit dispute that has
 already closed. Send the SLA clause, the telemetry, whatever the customer sent,
-and how it ended. I will reconstruct it and return a report on what the evidence
-supports and where the chain broke. Free, no integration, nothing touching
-production.
+and how it ended. Two weeks later you get back a reconstruction: what the
+evidence supports, and where the chain broke. Nothing is deployed and nothing
+touches production. I am doing three or four of these this quarter.
 
 **One technical cofounder.**
 
