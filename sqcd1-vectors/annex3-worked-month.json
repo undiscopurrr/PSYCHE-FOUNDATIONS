@@ -1,0 +1,146 @@
+{
+  "sqcd1_vectors_version": "1.0",
+  "annex": "3",
+  "note": "Recomputed from the sample counts alone. A conforming implementation reproduces every figure below from `events` and `standard` with no other input.",
+  "standard": {
+    "A2_period_function": "F-01",
+    "A3_window_hours": 720,
+    "A3_sample_interval_s": 300,
+    "A5_threshold_pct": 99.9,
+    "A6_materiality": {
+      "form": "MT-02",
+      "parameter_intervals": 12
+    },
+    "A6_unresolved_ceiling": {
+      "form": "UC-01",
+      "parameter_pct": 1.0
+    },
+    "A7_remedy_schedule": [
+      {
+        "at_or_above": 99.9,
+        "credit": 0.0
+      },
+      {
+        "at_or_above": 99.85,
+        "credit": 0.05
+      },
+      {
+        "at_or_above": 99.5,
+        "credit": 0.1
+      },
+      {
+        "below": 99.5,
+        "credit": 0.25
+      }
+    ],
+    "A8_grade_class": "GC-H200-SXM-141",
+    "A8_accelerators_per_subject": 8,
+    "A9_substitution": "SB-01",
+    "B3_measured_subject": "node",
+    "B7_covered_layers": [
+      "L2",
+      "L3",
+      "L4",
+      "L6",
+      "L7"
+    ],
+    "J1_evidence_fault": {
+      "form": "EF-04"
+    },
+    "price_per_accelerator_hour_usd": 2.9
+  },
+  "events": {
+    "E1": {
+      "subjects": [
+        "N-01",
+        "N-02",
+        "N-03",
+        "N-04"
+      ],
+      "intervals": 288,
+      "class": "A4-exclusion"
+    },
+    "E2": {
+      "subjects": [
+        "N-01",
+        "N-02",
+        "N-03",
+        "N-04",
+        "N-05",
+        "N-06",
+        "N-07",
+        "N-08"
+      ],
+      "intervals": 9,
+      "class": "unresolved"
+    },
+    "E3": {
+      "subjects": [
+        "N-01",
+        "N-02",
+        "N-03",
+        "N-04",
+        "N-05",
+        "N-06",
+        "N-07",
+        "N-08"
+      ],
+      "intervals": 48,
+      "class": "unilateral",
+      "observed_by": "operator"
+    },
+    "E4": {
+      "subjects": [
+        "N-03"
+      ],
+      "intervals": 72,
+      "class": "non-conforming",
+      "layer": "L7",
+      "agreed": true
+    },
+    "E5": {
+      "subjects": [
+        "N-05"
+      ],
+      "intervals": 36,
+      "class": "disputed",
+      "layer": "L6",
+      "first_interval": "2026-06-21T02:00:00Z"
+    }
+  },
+  "expected": {
+    "total_subject_intervals": 69120,
+    "a4_exclusions": 1152,
+    "eligible_before_C5": 67968,
+    "unresolved": 72,
+    "eligible": 67896,
+    "per_subject_eligible": {
+      "N-01": 8343,
+      "N-02": 8343,
+      "N-03": 8343,
+      "N-04": 8343,
+      "N-05": 8631,
+      "N-06": 8631,
+      "N-07": 8631,
+      "N-08": 8631
+    },
+    "unresolved_fraction_pct": 0.105932,
+    "unilateral_fraction_pct": 0.564972,
+    "period_figure_operator_pct": 99.892125,
+    "period_figure_customer_pct": 99.839987,
+    "divergence_pp": 0.052138,
+    "divergence_material": true,
+    "first_diverging_interval": "2026-06-21T02:00:00Z",
+    "window_fee_usd": 133632.0,
+    "credit_operator_usd": 6681.6,
+    "credit_customer_usd": 13363.2,
+    "sigma_output": "requires-review",
+    "terminal_state": null,
+    "terminal_state_note": "No F2 decision is present in this vector. A conforming implementation reaches no terminal state from these inputs alone."
+  },
+  "alternate_period_functions": {
+    "F-03_worst_subject_pct": 99.137001,
+    "F-03_credit_usd": 33408.0
+  },
+  "scope": "Counted intervals and a period function only. No Annex 7 reading appears in this vector. Every percentage is an exact ratio of integer interval counts and carries no expanded uncertainty; the six decimal places are the arithmetic of a division rather than a claim about instrument precision. A Window resting on measured values runs 7.0.2 and 7.0.2.1, which this vector does not exercise."
+}

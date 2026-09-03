@@ -1,0 +1,90 @@
+{
+  "sqcd1_vectors_version": "1.0",
+  "note": "Cases a conforming implementation must distinguish. Each states the input and the only conforming outcome.",
+  "cases": [
+    {
+      "id": "EV-01",
+      "clause": "C5.2",
+      "input": "an interval no Filing Party observed",
+      "expect": "excluded from numerator and denominator; counted in the Unresolved Fraction",
+      "must_not": "counted as delivered, or as not delivered"
+    },
+    {
+      "id": "EV-02",
+      "clause": "C5.4",
+      "input": "an interval a party's own Filing Plan required it to observe, and it did not",
+      "expect": "attributed to that party under C3; J1 applies",
+      "must_not": "treated as Unresolved"
+    },
+    {
+      "id": "EV-03",
+      "clause": "7.0.3",
+      "input": "a measurement whose expanded uncertainty exceeds the procedure's bound",
+      "expect": "no reading; a BoundaryRecord with cause instrument-failure",
+      "must_not": "a low reading, or evidence the field was below its floor"
+    },
+    {
+      "id": "EV-04",
+      "clause": "I.1.1",
+      "input": "the review deadline passes with no Counterparty Decision filed",
+      "expect": "terminal state expired, from a timeout event",
+      "must_not": "terminal state accepted"
+    },
+    {
+      "id": "EV-05",
+      "clause": "B7.2",
+      "input": "L3 conforming and L7 non-conforming in one interval, both covered",
+      "expect": "the interval is not delivered",
+      "must_not": "delivered on the strength of the conforming layer"
+    },
+    {
+      "id": "EV-06",
+      "clause": "B7.3",
+      "input": "a Profile naming L8 among the covered Layers",
+      "expect": "the Profile cannot be armed",
+      "must_not": "armed with L8 counting against the provider"
+    },
+    {
+      "id": "EV-07",
+      "clause": "2.5.1",
+      "input": "J1 selecting EF-02 where the required evidence class is operator-held",
+      "expect": "the selection is refused at arming time",
+      "must_not": "armed"
+    },
+    {
+      "id": "EV-08",
+      "clause": "A8.11",
+      "input": "a Grade Class carrying a V4 field with no required evidence class",
+      "expect": "the Profile cannot be armed",
+      "must_not": "armed"
+    },
+    {
+      "id": "EV-09",
+      "clause": "A8",
+      "input": "a Grade Class field left blank",
+      "expect": "the Grade Class is incomplete and cannot be armed",
+      "must_not": "read as not-material"
+    },
+    {
+      "id": "EV-10",
+      "clause": "7.1.5",
+      "input": "an MP-06 identity reading whose baseline was committed after the Window opened",
+      "expect": "the reading establishes nothing",
+      "must_not": "accepted as establishing identity"
+    },
+    {
+      "id": "EV-11",
+      "clause": "H4 / 2.7",
+      "input": "a material Divergence under a Profile selecting DR-02, with the two figures inside the bound",
+      "expect": "the arithmetic mean governs the quantity; the terminal state still comes from F2",
+      "must_not": "a terminal state derived from the resolution"
+    },
+    {
+      "id": "EV-12",
+      "clause": "L5",
+      "input": "a record armed under version 1.0, read after a later version issues",
+      "expect": "conformance is assessed under version 1.0",
+      "must_not": "assessed under the later version"
+    }
+  ]
+}

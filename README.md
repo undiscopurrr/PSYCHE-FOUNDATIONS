@@ -94,7 +94,7 @@ survive contact with a real procurement process.
 
 **[Verification Is Not Acceptance: Evidentiary Sufficiency and Settlement
 Authority in Contracted Compute Delivery](yang-verification-is-not-acceptance.pdf)**
-· 43 pages
+· 44 pages · September 2026
 
 - a threat model in which the fabric operator is untrusted, alongside the two
   commercial counterparties
@@ -120,19 +120,80 @@ Authority in Contracted Compute Delivery](yang-verification-is-not-acceptance.pd
 Every table in the paper is emitted by a harness rather than typed in. §8 of the
 paper states what a reader can and cannot check independently.
 
-## The field list
+## The standard
 
-**[Delivery Record Fields for Contracted
-Compute](delivery-record-field-list.pdf)** · 3 pages
+**[SQCD-1 · Settlement Quality Compute
+Data](SQCD-1-settlement-quality-compute-data.pdf)** · 38 pages · version 1.0
 
-What a record has to carry for a party who was absent, holding no account on
-either side, to recompute the period and reach the same number. Six groups: the
-standard pinned before the window, the measurements, the intervals nobody
-observed, provenance, temporal binding, and the line between a claim and a
-decision.
+The record a delivered compute hour settles on. Two parties name it in their
+agreement and it governs the form of the record that settles delivery between
+them. It is modelled on SQMD — Settlement Quality Meter Data, the standard
+California's grid operator settles its market on — and it answers the same
+question for a market that has yet to be asked it: what a meter reading has to
+carry before money moves on it.
 
-It is the short way into the argument, and it is short enough to check a fleet
-against in an afternoon.
+- **the commodity has a name.** A Grade Class fixes nine dimensions of a compute
+  hour — accelerator, intra-node interconnect, inter-node fabric, host, attached
+  storage, external network, locality, tenancy, software floor. A rate quoted
+  without one prices an unnamed good, and two providers printing the same
+  availability number can be selling different things while both tell the truth
+- **the buyer can check it.** Every Grade Class field carries a verifiability
+  tier: V1 established by the customer's own measurement, V2 by a signature from
+  a hardware root of trust, V3 read through an interface the provider operates,
+  V4 by a signed declaration made before the window opens. Where confidential
+  computing is enabled, the accelerator model and a separate `isolation_attested`
+  field are V2, and firmware floors are V2 wherever the report's measurements
+  check against the manufacturer's published reference values. Exclusive
+  possession of a die stays V4; A8.10 of the standard states the field
+  assignments and what `tenancy` does and does not cover
+- **delivery is a conjunction of eight layers,** from facility to
+  tenant workload. An interval counts as delivered only where every covered
+  layer was simultaneously conforming, and the customer's own code never counts
+  against the provider. A machine can hold its benchmark and deliver nothing,
+  because the scheduler never placed the work
+- **what nobody saw is on the face of the record.** Two disclosed fractions: how
+  much of the month neither party observed, and how much of it exactly one party
+  observed
+- **silence resolves, and it never resolves to yes.** A window that passes with
+  no counterparty decision expires. Deemed acceptance appears nowhere in this
+  standard
+- **seven terms it refuses to fill.** Materiality, the unresolved ceiling, the
+  evidence class behind every V4 field, the price of expiry, who bears an
+  evidence fault, how a divergence resolves to one quantity, and how a reading
+  that lands close to a limit is decided. Each allocates loss between the
+  parties; a value set here would apply to every contract processed under the
+  standard, whatever any of them say. Each is instead enclosed in a published
+  set of forms the parties select from before the window opens
+- **it sits inside the existing ISO framework rather than beside it.** The
+  metric registry is an ISO/IEC 19086-2 metric model extended under that
+  standard's own extension clause, with the fields settlement needs and
+  description does not: what a function does with an interval no sample
+  reached, whether two parties running it must reach one figure, and a version.
+  ISO/IEC 19086-2 carries no version field, and a metric that can change under a
+  fixed name defeats every finality clause in this document
+- **it ships something you can run.** Annex 9 publishes the worked month and
+  twelve boundary cases as JSON fixtures with a digest manifest. A counterparty
+  checks an implementation's conformance claim without asking anyone
+- **conformance is permanent.** A later version never revokes conformance
+  established under an earlier one, because a facility written against records
+  filed in year one is tested in year four
+
+Annex 3 works a month end to end — 69,120 subject-intervals, two filing parties,
+one disputed node — and shows the same samples producing $6,681.60 under one
+declared period function and $33,408.00 under another. Annex 8 lists all
+thirty-two terms an agreement has to fix, so a defect is an arming-time finding
+rather than a dispute-time discovery.
+
+The text is under CC BY-ND 4.0 and the forms, schemas and vectors under a
+permissive licence, so a counterparty can attach the standard to an agreement
+and an implementer can lift the machine-readable parts into code.
+
+**[SQCD-1 in brief](SQCD-1-in-brief.pdf)** · 3 pages · version 1.0
+
+Every clause in one line, with the layer table, the timetable and the seven
+terms the parties fix, each pointing into the standard by clause number. It is
+an entry document rather than a second specification: conformance is to the
+standard alone, and where the two disagree the standard governs.
 
 ## Status
 
@@ -163,6 +224,19 @@ evidence supports, and where the chain broke. Nothing is deployed and nothing
 touches production. I am doing three or four of these this quarter.
 
 **One technical cofounder.**
+
+## Where this version lives
+
+SQCD-1 L8 requires each version's deposit location to be published with it. This
+repository is it — `github.com/undiscopurrr/PSYCHE-PAPER` — and this version
+comprises:
+
+| File | |
+|---|---|
+| `yang-verification-is-not-acceptance.pdf` | the paper |
+| `SQCD-1-settlement-quality-compute-data.pdf` | the standard, version 1.0 |
+| `SQCD-1-in-brief.pdf` | the entry document, version 1.0 |
+| `sqcd1-vectors/` | conformance vectors and a digest manifest |
 
 ---
 
