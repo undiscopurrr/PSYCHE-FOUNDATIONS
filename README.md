@@ -1,6 +1,6 @@
 # PSYCHE
 
-**Delivery accounting for contracted compute.** A neutral, reproducible record
+**PSYCHE provides settlement and Intelligence for contracted compute.** A neutral, reproducible record
 of whether a delivery obligation was met — and of who agreed to it.
 
 ---
@@ -197,11 +197,12 @@ standard alone, and where the two disagree the standard governs.
 
 ## Status
 
-The full contract-to-archive pipeline is implemented and runs end to end:
-140,000 lines of Python with a browser client, 195 test modules, 2,781 test
-functions. The system is not production-hardened and is not deployed anywhere.
-§10.1 of the paper states where the evaluated build departs from the release
-specification.
+The full contract-to-archive pipeline is implemented and runs end to end, in
+Python with a browser client. §8 of the paper names the suite that holds each
+stated property, and the invariant harness exits non-zero on any violation,
+which makes it usable as a release gate. The system is not production-hardened
+and is not deployed anywhere. §10.1 of the paper states where the evaluated
+build departs from the release specification.
 
 It is ready today for exactly one thing, and that one asks nothing of anybody's
 infrastructure: taking a dispute that has already closed and reconstructing it
@@ -221,7 +222,7 @@ model in §6 is complete enough to reimplement from.
 already closed. Send the SLA clause, the telemetry, whatever the customer sent,
 and how it ended. Two weeks later you get back a reconstruction: what the
 evidence supports, and where the chain broke. Nothing is deployed and nothing
-touches production. I am doing three or four of these this quarter.
+touches production.
 
 **One technical cofounder.**
 
