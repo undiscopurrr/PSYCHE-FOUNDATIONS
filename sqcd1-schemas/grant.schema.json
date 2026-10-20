@@ -1,0 +1,53 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/grant.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "grant (Cases Spec §9; SQCD-1 F3 authority reference)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "grant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "holder_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "allowed_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "claim-supported",
+          "claim-not-supported",
+          "evidence-fault",
+          "requires-review"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "max_value_minor_units": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "valid_from": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "valid_until": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "grant_id",
+    "holder_ref"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/boundary_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "br_id": {
+      "type": "string"
+    },
+    "cause_code": {
+      "enum": [
+        "instrument-down",
+        "retention-expired",
+        "collector-restarted",
+        "never-instrumented",
+        "scope-excluded",
+        "instrument-failure"
+      ]
+    },
+    "claimRef": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "integer"
+    },
+    "interval": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": "integer"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "materiality": {
+      "type": "integer"
+    },
+    "observed_by_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "party_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "point": {
+      "type": "integer"
+    },
+    "scope": {
+      "enum": [
+        "channel",
+        "xer",
+        "challenge",
+        "global"
+      ]
+    },
+    "signature": {
+      "type": "string"
+    },
+    "subject_ref": {
+      "type": "string"
+    },
+    "unilateral": {
+      "type": "boolean"
+    },
+    "value_assigned_micro": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "br_id",
+    "claimRef",
+    "scope",
+    "subject_ref",
+    "party_ref",
+    "cause_code",
+    "materiality",
+    "value_assigned_micro",
+    "unilateral",
+    "created_at",
+    "signature"
+  ],
+  "title": "BoundaryRecord (Cases Spec Annex A.11)",
+  "type": "object"
+}

@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:psyche:schema:metric_registry_entry:1.0.0",
+  "title": "PSYCHE metric registry entry",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "metricId",
+    "version",
+    "owner",
+    "profileScope",
+    "class",
+    "purpose",
+    "allowedInputs",
+    "outputUnit",
+    "numericRules",
+    "missingDataBehavior",
+    "rolloutState",
+    "retirementPolicy",
+    "algorithmReference"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "metricId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
+    },
+    "version": {
+      "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/semver"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "profileScope": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "const": "core"
+          },
+          {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/profileId"
+          }
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "class": {
+      "type": "string",
+      "enum": [
+        "canonical",
+        "experimental"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 512
+    },
+    "allowedInputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "outputUnit": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "scale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "algorithmReference": {
+      "type": "object",
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "module",
+            "doc",
+            "paper",
+            "spec"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "additionalProperties": false
+    },
+    "determinismConstraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "missingDataBehavior": {
+      "type": "object",
+      "required": [
+        "policy"
+      ],
+      "properties": {
+        "policy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 512
+        }
+      },
+      "additionalProperties": false
+    },
+    "numericRules": {
+      "type": "object",
+      "required": [
+        "deterministic",
+        "finiteOnly"
+      ],
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "finiteOnly": {
+          "type": "boolean"
+        },
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "rolloutState": {
+      "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/rolloutStateToken"
+    },
+    "retirementPolicy": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 512
+        }
+      },
+      "additionalProperties": false
+    },
+    "reviewRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

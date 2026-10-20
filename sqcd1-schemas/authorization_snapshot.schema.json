@@ -1,0 +1,58 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/authorization_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "authorized_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "captured_at": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "counterparty_ref": {
+      "type": "string"
+    },
+    "digest_ref": {
+      "type": "string"
+    },
+    "maximum_amount": {
+      "type": "integer"
+    },
+    "profile_ref": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "settings_snapshot_id": {
+      "type": "string"
+    },
+    "payment_rail": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "settings_snapshot_id",
+    "account_id",
+    "role",
+    "case_id",
+    "profile_ref",
+    "payment_rail",
+    "counterparty_ref",
+    "maximum_amount",
+    "authorized_actions",
+    "captured_at",
+    "digest_ref"
+  ],
+  "title": "Authorization Snapshot (Cases Spec §20)",
+  "type": "object"
+}

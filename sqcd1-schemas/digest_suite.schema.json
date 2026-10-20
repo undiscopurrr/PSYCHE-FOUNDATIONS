@@ -1,0 +1,33 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/digest_suite.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonicalization_id": {
+      "enum": [
+        "canonical_json/1"
+      ]
+    },
+    "hash_id": {
+      "enum": [
+        "sha256"
+      ]
+    },
+    "signature_id": {
+      "enum": [
+        "ed25519"
+      ]
+    },
+    "suite_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "suite_id",
+    "canonicalization_id",
+    "hash_id",
+    "signature_id"
+  ],
+  "title": "DigestSuite (Cases Spec Annex A.2)",
+  "type": "object"
+}

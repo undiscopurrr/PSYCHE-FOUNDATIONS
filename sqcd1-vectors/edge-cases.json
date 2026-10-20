@@ -4,17 +4,17 @@
   "cases": [
     {
       "id": "EV-01",
-      "clause": "C5.2",
-      "input": "an interval no Filing Party observed",
-      "expect": "excluded from numerator and denominator; counted in the Unresolved Fraction",
-      "must_not": "counted as delivered, or as not delivered"
+      "clause": "C5.2 / C5.5",
+      "input": "an interval no Filing Party observed, every party whose Filing Plan required the observation having declared the gap under C1 through C4",
+      "expect": "Unresolved: excluded from numerator and denominator; counted in the Unresolved Fraction; no fault recorded",
+      "must_not": "counted as delivered, or as not delivered, or attributed to a party"
     },
     {
       "id": "EV-02",
-      "clause": "C5.4",
-      "input": "an interval a party's own Filing Plan required it to observe, and it did not",
-      "expect": "attributed to that party under C3; J1 applies",
-      "must_not": "treated as Unresolved"
+      "clause": "C5.4 / C5.5",
+      "input": "an interval a party's own Filing Plan required it to observe, and it neither observed nor declared under C1 through C4",
+      "expect": "attributed to that party under C3; J1 applies; the value follows the Profile's Annex 2.5 selection, read under 2.5.2 where no party observed",
+      "must_not": "treated as Unresolved with no fault recorded"
     },
     {
       "id": "EV-03",
@@ -27,8 +27,8 @@
       "id": "EV-04",
       "clause": "I.1.1",
       "input": "the review deadline passes with no Counterparty Decision filed",
-      "expect": "terminal state expired, from a timeout event",
-      "must_not": "terminal state accepted"
+      "expect": "terminal state expired, from the closing of the review window or the timeout at the Case deadline",
+      "must_not": "terminal state accepted, or expired derived from any other event"
     },
     {
       "id": "EV-05",
@@ -85,6 +85,20 @@
       "input": "a record armed under version 1.0, read after a later version issues",
       "expect": "conformance is assessed under version 1.0",
       "must_not": "assessed under the later version"
+    },
+    {
+      "id": "EV-13",
+      "clause": "C5.5 / 2.5.2",
+      "input": "no Filing Party observed; one required party declared the gap under C1 through C4, the other did not",
+      "expect": "the undeclared party bears the fault under J1; the declaring party bears none; the value follows the Profile's Annex 2.5 selection, under EF-04 or EF-05 excluded and counted in the Unresolved Fraction",
+      "must_not": "a fault recorded against the party that declared, or the interval read as Unresolved with no fault"
+    },
+    {
+      "id": "EV-14",
+      "clause": "C5.4 / C5.5",
+      "input": "no Filing Party observed, both required to observe, neither declared",
+      "expect": "each party bears its own fault under J1; the value follows the Profile's Annex 2.5 selection, read under 2.5.2",
+      "must_not": "one fault shared between the parties, or no fault recorded"
     }
   ]
 }

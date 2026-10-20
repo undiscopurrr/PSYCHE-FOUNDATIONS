@@ -1,0 +1,63 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/evidence_obligation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_source_ref": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "data_mode": {
+      "enum": [
+        "production",
+        "local_production_simulation",
+        "test"
+      ]
+    },
+    "delivery_window_ref": {
+      "type": "string"
+    },
+    "due_at": {
+      "type": "string"
+    },
+    "evidence_obligation_id": {
+      "type": "string"
+    },
+    "evidence_profile_id": {
+      "type": "string"
+    },
+    "evidence_profile_version": {
+      "type": "string"
+    },
+    "evidence_provider_id": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "grace_interval_seconds": {
+      "type": "integer"
+    },
+    "maturity_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_obligation_id",
+    "case_id",
+    "evidence_profile_id",
+    "evidence_profile_version",
+    "evidence_type",
+    "authority_source_ref",
+    "evidence_provider_id",
+    "delivery_window_ref",
+    "due_at",
+    "grace_interval_seconds",
+    "maturity_at",
+    "data_mode"
+  ],
+  "title": "EvidenceObligation (Indicators Canonical Implementation Plan section 7.9)",
+  "type": "object"
+}

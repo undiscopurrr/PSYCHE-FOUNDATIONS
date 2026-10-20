@@ -1,0 +1,76 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/claim_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capsule_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claimRef": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "reject",
+        "dispute",
+        "abstain"
+      ]
+    },
+    "evidenceConsidered": {
+      "type": "array"
+    },
+    "grant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "head_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_]*(\\.[A-Z][A-Z0-9_]*)*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviewed_at": {
+      "type": "integer"
+    },
+    "reviewer_independence_class": {
+      "type": "string"
+    },
+    "reviewer_ref": {
+      "type": "string"
+    },
+    "reviewer_role": {
+      "type": "string"
+    },
+    "reviewer_signature": {
+      "type": "string"
+    },
+    "sigma_output_ref": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "review_id",
+    "claimRef",
+    "capsule_digest",
+    "reviewer_ref",
+    "reviewer_role",
+    "decision",
+    "reason_codes",
+    "reviewed_at",
+    "evidenceConsidered",
+    "reviewer_signature"
+  ],
+  "title": "claim_review (Cases Spec Annex A.6)",
+  "type": "object"
+}

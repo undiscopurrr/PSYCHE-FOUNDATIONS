@@ -1,0 +1,93 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/parameter_pack.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agg": {
+      "type": "object"
+    },
+    "boundary_tolerance": {
+      "type": "integer"
+    },
+    "channel_weights": {
+      "type": "object"
+    },
+    "gate_thresholds": {
+      "type": "object"
+    },
+    "h_map": {
+      "type": "object"
+    },
+    "late_grade_boundaries": {
+      "type": "object"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "object"
+    },
+    "tau_support": {
+      "type": "integer"
+    },
+    "theta_U": {
+      "type": "integer"
+    },
+    "theta_soft": {
+      "type": "integer"
+    },
+    "u_terms": {
+      "type": "object"
+    },
+    "unresolved_ceiling": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "form": {
+          "enum": [
+            "UC-01",
+            "UC-02",
+            "UC-03",
+            "UC-04"
+          ]
+        },
+        "fraction_micro": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "form"
+      ],
+      "type": "object"
+    },
+    "var_tiers": {
+      "type": "array"
+    },
+    "x_cap": {
+      "type": "integer"
+    },
+    "x_terms": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "pack_id",
+    "channel_weights",
+    "agg",
+    "theta_soft",
+    "theta_U",
+    "tau_support",
+    "u_terms",
+    "x_terms",
+    "x_cap",
+    "h_map",
+    "late_grade_boundaries",
+    "var_tiers",
+    "gate_thresholds",
+    "boundary_tolerance"
+  ],
+  "title": "ProfileParameterPack (Cases Spec Annex A.13)",
+  "type": "object"
+}

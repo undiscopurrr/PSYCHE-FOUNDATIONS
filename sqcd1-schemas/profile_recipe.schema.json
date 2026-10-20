@@ -1,0 +1,115 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/profile_recipe.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "advisory_xer_items": {
+      "type": "array"
+    },
+    "alg_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gate_dependency_refs": {
+      "type": "array"
+    },
+    "grant_constitution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "issuers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "counterparty"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "holders": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "party",
+              "verifier",
+              "fabric",
+              "external_evidence_source",
+              "beneficiary",
+              "auditor",
+              "quoter"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "machine_outputs": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "claim-supported",
+              "claim-not-supported",
+              "evidence-fault",
+              "requires-review"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "max_delegable_minor_units": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "hard_required_channels": {
+      "type": "array"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recipe_id": {
+      "type": "string"
+    },
+    "required_challenge_types": {
+      "items": {
+        "enum": [
+          "holdout_eval",
+          "random_audit_window",
+          "nonce_marker",
+          "state_commitment",
+          "marker_injection"
+        ]
+      },
+      "type": "array"
+    },
+    "required_xer_items": {
+      "type": "array"
+    },
+    "settlement_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accept_quorum": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "receipt_quorum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "clock_tolerance": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "required": [
+    "recipe_id",
+    "hard_required_channels",
+    "required_xer_items",
+    "required_challenge_types",
+    "gate_dependency_refs"
+  ],
+  "title": "Profile Recipe (Cases Spec Annex A.13)",
+  "type": "object"
+}

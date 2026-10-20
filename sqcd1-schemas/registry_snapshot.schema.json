@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:psyche:schema:registry_snapshot:1.0.0",
+  "title": "PSYCHE registry snapshot",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "snapshotId",
+    "version",
+    "createdAt",
+    "profiles",
+    "metrics",
+    "rulePacks"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "snapshotId": {
+      "type": "string",
+      "pattern": "^RS-[a-z0-9]{12,}$"
+    },
+    "version": {
+      "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/semver"
+    },
+    "createdAt": {
+      "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/timestamp"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "profileId",
+          "version",
+          "path",
+          "status"
+        ],
+        "properties": {
+          "profileId": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/profileId"
+          },
+          "version": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/semver"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "contentDigest": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/sha256Digest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": false
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "metricId",
+          "version",
+          "path",
+          "contentDigest",
+          "class"
+        ],
+        "properties": {
+          "metricId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
+          },
+          "version": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/semver"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contentDigest": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/sha256Digest"
+          },
+          "class": {
+            "type": "string",
+            "enum": [
+              "canonical",
+              "experimental"
+            ]
+          },
+          "rolloutState": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/rolloutStateToken"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rulePacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rulePackId",
+          "version",
+          "path",
+          "contentDigest"
+        ],
+        "properties": {
+          "rulePackId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"
+          },
+          "version": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/semver"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contentDigest": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/sha256Digest"
+          },
+          "rolloutState": {
+            "$ref": "urn:psyche:schema:common_types:1.0.0#/$defs/rolloutStateToken"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

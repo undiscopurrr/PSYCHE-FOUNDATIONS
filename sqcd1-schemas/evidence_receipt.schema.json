@@ -1,0 +1,55 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/evidence_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "captured_at": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "claim_ref": {
+      "type": "string"
+    },
+    "evidence_receipt_id": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "normalized_evidence_digest": {
+      "type": "string"
+    },
+    "raw_evidence_digest": {
+      "type": "string"
+    },
+    "redaction_applied": {
+      "type": "boolean"
+    },
+    "source_identity_ref": {
+      "type": "string"
+    },
+    "source_signature_ref": {
+      "type": "string"
+    },
+    "source_system_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_receipt_id",
+    "case_id",
+    "claim_ref",
+    "evidence_type",
+    "source_system_id",
+    "source_identity_ref",
+    "source_signature_ref",
+    "redaction_applied",
+    "raw_evidence_digest",
+    "normalized_evidence_digest",
+    "captured_at"
+  ],
+  "title": "Evidence Receipt (Cases Spec §6)",
+  "type": "object"
+}

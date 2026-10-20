@@ -1,0 +1,41 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/terminal_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claimRef": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "disputed",
+        "expired",
+        "withdrawn"
+      ]
+    },
+    "occurred_at": {
+      "type": "integer"
+    },
+    "oracle_log_head_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "claimRef",
+    "kind",
+    "occurred_at",
+    "signature"
+  ],
+  "title": "TerminalEvent (Cases Spec Annex A.7)",
+  "type": "object"
+}

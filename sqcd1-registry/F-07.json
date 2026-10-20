@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "version": "1.0.0",
+  "owner": "PSYCHE",
+  "profileScope": [
+    "sqcd1.v1"
+  ],
+  "class": "canonical",
+  "determinismConstraints": [
+    "one filed sample set yields one figure (2.1.2)",
+    "canonical ordering of Measured Subjects and intervals",
+    "no input outside the filed record"
+  ],
+  "missingDataBehavior": {
+    "policy": "section-c",
+    "notes": "An interval without an observation is valued under C5; an Unresolved interval leaves numerator and denominator and is counted in the Unresolved Fraction."
+  },
+  "rolloutState": "enforcing",
+  "retirementPolicy": {
+    "mode": "section-l",
+    "notes": "Retirement under L2 does not reach a Window already closed under the entry (L4); conformance established under it is permanent (L5)."
+  },
+  "metricId": "sqcd1.f07_windowed_availability_error_budget",
+  "purpose": "Windowed availability with error budget: as F-01, with the first n non-conforming interval-seconds per subject per Window excluded, n declared in A5.",
+  "allowedInputs": [
+    "conforming_interval_seconds_per_subject",
+    "total_interval_seconds_per_subject",
+    "error_budget_interval_seconds_a5"
+  ],
+  "outputUnit": "ratio",
+  "scale": "ratio",
+  "algorithmReference": {
+    "kind": "spec",
+    "ref": "SQCD-1 Version 1.0, Annex 2.1, F-07"
+  },
+  "numericRules": {
+    "deterministic": true,
+    "finiteOnly": true,
+    "bounds": {
+      "min": 0,
+      "max": 1
+    }
+  }
+}

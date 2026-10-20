@@ -1,0 +1,114 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim_window": {
+      "properties": {
+        "end": {
+          "type": "integer"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "claimant_ref": {
+      "type": "string"
+    },
+    "claimant_signature": {
+      "type": "string"
+    },
+    "counterparty_ref": {
+      "items": {
+        "properties": {
+          "participant": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "participant",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "nonce": {
+      "type": "string"
+    },
+    "performance_spec_ref": {
+      "type": "string"
+    },
+    "profileId": {
+      "type": "string"
+    },
+    "registrySnapshotDigest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "settlement_policy_ref": {
+      "type": "string"
+    },
+    "subject": {
+      "properties": {
+        "subject_id": {
+          "type": "string"
+        },
+        "subject_type": {
+          "type": "string"
+        },
+        "workload_descriptor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_type",
+        "subject_id",
+        "workload_descriptor"
+      ],
+      "type": "object"
+    },
+    "value_at_risk": {
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "minor_units": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minor_units",
+        "currency"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "claim_id",
+    "claimant_ref",
+    "counterparty_ref",
+    "profileId",
+    "registrySnapshotDigest",
+    "claim_window",
+    "value_at_risk",
+    "nonce",
+    "subject",
+    "settlement_policy_ref",
+    "claimant_signature"
+  ],
+  "title": "Claim (Cases Spec Annex A.3)",
+  "type": "object"
+}

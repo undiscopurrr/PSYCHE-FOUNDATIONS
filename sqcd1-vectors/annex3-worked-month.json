@@ -36,6 +36,8 @@
     "A8_grade_class": "GC-H200-SXM-141",
     "A8_accelerators_per_subject": 8,
     "A9_substitution": "SB-01",
+    "H4_divergence_resolution": "DR-06",
+    "I11_expiry_pricing": "EX-02",
     "B3_measured_subject": "node",
     "B7_covered_layers": [
       "L2",
@@ -72,7 +74,13 @@
         "N-08"
       ],
       "intervals": 9,
-      "class": "unresolved"
+      "class": "unresolved",
+      "declared_by": [
+        "operator",
+        "customer"
+      ],
+      "cause": "instrument-down",
+      "clause": "C5.2"
     },
     "E3": {
       "subjects": [

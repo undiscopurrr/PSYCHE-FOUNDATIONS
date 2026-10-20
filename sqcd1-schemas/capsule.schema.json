@@ -1,0 +1,65 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/capsule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundaryRecords": {
+      "type": "array"
+    },
+    "challengeResponses": {
+      "type": "array"
+    },
+    "claimRef": {
+      "type": "string"
+    },
+    "evidenceCoverage": {
+      "type": "object"
+    },
+    "externalEvidenceRefs": {
+      "type": "array"
+    },
+    "oracle_log_head_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parameter_pack_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "provenanceDigest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reality_consistency": {
+      "type": "object"
+    },
+    "replay_verifiable": {
+      "type": "boolean"
+    },
+    "registrySnapshotDigest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "replay_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "verification_material": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "claimRef",
+    "registrySnapshotDigest",
+    "evidenceCoverage",
+    "reality_consistency",
+    "challengeResponses",
+    "oracle_log_head_digest",
+    "externalEvidenceRefs",
+    "replay_digest",
+    "provenanceDigest",
+    "parameter_pack_digest"
+  ],
+  "title": "PoR Capsule binding surface (Cases Spec Annex A.4)",
+  "type": "object"
+}

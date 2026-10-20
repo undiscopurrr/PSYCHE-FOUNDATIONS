@@ -1,0 +1,60 @@
+{
+  "$id": "https://psyche.local/schemas/canonical_v1/sigma_output.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exit_code": {
+      "enum": [
+        0,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "gate_results": {
+      "type": "object"
+    },
+    "input_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "negative_assertion": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "rcs_micro": {
+      "type": "integer"
+    },
+    "reason_code": {
+      "pattern": "^[A-Z][A-Z0-9_]*(\\.[A-Z][A-Z0-9_]*)*$",
+      "type": "string"
+    },
+    "replay_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "replay_expectation": {
+      "type": "string"
+    },
+    "sigma_assertion": {
+      "enum": [
+        "claim-supported",
+        "claim-not-supported",
+        "evidence-fault",
+        "requires-review",
+        null
+      ]
+    }
+  },
+  "required": [
+    "sigma_assertion",
+    "reason_code",
+    "exit_code",
+    "replay_digest"
+  ],
+  "title": "SigmaOutput (Cases Spec Annex B.8–B.10)",
+  "type": "object"
+}
