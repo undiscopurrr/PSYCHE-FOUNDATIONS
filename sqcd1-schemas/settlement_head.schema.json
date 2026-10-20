@@ -1,5 +1,5 @@
 {
-  "$id": "https://psyche.local/schemas/canonical_v1/settlement_head.schema.json",
+  "$id": "urn:psyche:schema:settlement_head:1.0.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "description": "The fabric's signed head over a Case's settlement log (Cases Spec §9): the Merkle root over the first tree_size events of the log, the time the fabric asserts, and the fabric's Ed25519 signature over the canonical content. A record inside a head published at time T existed before T (SQCD-1 E2).",

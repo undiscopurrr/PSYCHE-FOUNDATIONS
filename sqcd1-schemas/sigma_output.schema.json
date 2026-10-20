@@ -1,5 +1,5 @@
 {
-  "$id": "https://psyche.local/schemas/canonical_v1/sigma_output.schema.json",
+  "$id": "urn:psyche:schema:sigma_output:1.0.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {

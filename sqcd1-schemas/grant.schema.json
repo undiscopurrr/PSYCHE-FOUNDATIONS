@@ -1,5 +1,5 @@
 {
-  "$id": "https://psyche.local/schemas/canonical_v1/grant.schema.json",
+  "$id": "urn:psyche:schema:grant:1.0.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "grant (Cases Spec §9; SQCD-1 F3 authority reference)",
   "type": "object",

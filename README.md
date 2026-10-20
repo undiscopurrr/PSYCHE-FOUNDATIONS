@@ -144,7 +144,7 @@ paper states what a reader can and cannot check independently.
 Data](SQCD-1-settlement-quality-compute-data.pdf)** · 39 pages · version 1.0
 
 Version 1.0 is identified by the SHA-256 digest of that file,
-`ffafaac38bb0d2afa15bbe274839244393d9ed4061510f945de0c5f0aecba47e`. Its errata
+`eee135a525bf073083834da23e584432999d95807ce0bc1a2edb4430037f9131`. Its errata
 record, published against that digest under L6, is
 [`SQCD-1-errata.md`](SQCD-1-errata.md); L6.3 makes the record part of the
 standard.
