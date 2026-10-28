@@ -88,8 +88,8 @@ final step.
 > agrees to be bound and to pay. The two have different correctness conditions,
 > and a verdict produced by the first cannot discharge the second. Systems that
 > conflate them bind the counterparty only as far as it authorized the verifier
-> in advance, once, at the level of policy; PSYCHE records that authority per
-> case, bounded and revocable.
+> in advance, as policy, when the obligation was bound; PSYCHE records that
+> authority on the case at review, bounded and revocable.
 
 A verifier may be entirely correct and still lack the standing to bind anyone. A
 finance function will not delegate acceptance authority over material spend to a
@@ -100,7 +100,7 @@ a real procurement process.
 
 **[Signed in Advance: Evidentiary Sufficiency and Settlement
 Authority in Contracted Compute
-Delivery](yang-signed-in-advance.pdf)** · 54 pages · October 2026
+Delivery](yang-signed-in-advance.pdf)** · 56 pages · October 2026
 
 - a threat model in which the host of the log is untrusted, alongside the two
   contracting parties
@@ -260,7 +260,7 @@ We are also looking for one technical cofounder.
 ## Where this version lives
 
 SQCD-1 L8 requires each version's deposit location to be published with it. This
-repository is it — `github.com/undiscopurrr/PSYCHE-PAPER` — and this version
+repository is it — `github.com/undiscopurrr/PSYCHE-FOUNDATIONS` — and this version
 comprises:
 
 | File | |
@@ -276,4 +276,4 @@ comprises:
 
 ---
 
-Fée-Fée Yang · feifei.gelato@gmail.com
+Fée-Fée Yang · purr@psyche-0.com
