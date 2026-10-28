@@ -100,7 +100,7 @@ a real procurement process.
 
 **[Signed in Advance: Evidentiary Sufficiency and Settlement
 Authority in Contracted Compute
-Delivery](yang-signed-in-advance.pdf)** · 56 pages · October 2026
+Delivery](yang-signed-in-advance.pdf)** · 57 pages · October 2026
 
 - a threat model in which the host of the log is untrusted, alongside the two
   contracting parties
