@@ -26,8 +26,8 @@ This is the ordinary case, in a market that has grown faster than the
 institutions that would normally govern it. Several neocloud providers offer no
 standing uptime SLA in default terms. Where an SLA exists, the measurement
 period, the exclusion list, and the definition of availability itself can differ
-between the contract a provider signs with the facility beneath it and the one
-it signs with the customer above — so an operator can recover a fraction of
+between a provider's contract with the facility beneath it and its contract
+with the customer above — so an operator can recover a fraction of
 monthly rent upstream while owing credits computed against far larger service
 commitments downstream. The market reconciles bilaterally, in spreadsheets.
 
@@ -46,9 +46,9 @@ evaluation path cannot reach, so the component that evaluates the evidence never
 sees *what it would cost*.
 
 **2 · Admit the evidence.** Evidence comes from provider telemetry, customer
-scheduler logs and third-party probes. Each item is checked: where it came from,
-whether it covers the window it claims to cover, and whether it contradicts what
-the other side filed. A coverage gap is an outcome in its own right, and so is a
+scheduler logs and third-party probes. Each item is checked: its source,
+whether it covers the window it claims to cover, and whether it contradicts the
+other side's filings. A coverage gap is an outcome in its own right, and so is a
 conflict between the parties. Neither is quietly dropped.
 
 **3 · Seal it.** The admitted set is assembled into a signed bundle. Anyone
