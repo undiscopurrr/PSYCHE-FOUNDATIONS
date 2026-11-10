@@ -21,6 +21,33 @@
     "late_grade_boundaries": {
       "type": "object"
     },
+    "materiality_threshold": {
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "enum": [
+            "MT-01",
+            "MT-02",
+            "MT-03",
+            "MT-04",
+            "MT-05"
+          ]
+        },
+        "fraction_micro": {
+          "type": "integer"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "form"
+      ],
+      "type": "object"
+    },
     "pack_id": {
       "type": "string"
     },

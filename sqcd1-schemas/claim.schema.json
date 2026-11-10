@@ -48,6 +48,9 @@
     "nonce": {
       "type": "string"
     },
+    "pass_identifier": {
+      "type": "string"
+    },
     "performance_spec_ref": {
       "type": "string"
     },

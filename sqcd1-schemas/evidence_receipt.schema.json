@@ -12,13 +12,49 @@
     "claim_ref": {
       "type": "string"
     },
+    "conditions": {
+      "additionalProperties": false,
+      "properties": {
+        "driver_version": {
+          "type": "string"
+        },
+        "load_state": {
+          "type": "string"
+        },
+        "measurement_window_exclusive": {
+          "type": "boolean"
+        },
+        "runtime_version": {
+          "type": "string"
+        },
+        "wall_clock_start": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "coverage_factor_micro": {
+      "type": "integer"
+    },
     "evidence_receipt_id": {
       "type": "string"
     },
     "evidence_type": {
       "type": "string"
     },
+    "expanded_uncertainty_micro": {
+      "type": "integer"
+    },
+    "grade_class_field": {
+      "type": "string"
+    },
+    "median_micro": {
+      "type": "integer"
+    },
     "normalized_evidence_digest": {
+      "type": "string"
+    },
+    "procedure_id": {
       "type": "string"
     },
     "raw_evidence_digest": {
@@ -26,6 +62,15 @@
     },
     "redaction_applied": {
       "type": "boolean"
+    },
+    "runs_micro": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "scaled_median_absolute_deviation_micro": {
+      "type": "integer"
     },
     "source_identity_ref": {
       "type": "string"

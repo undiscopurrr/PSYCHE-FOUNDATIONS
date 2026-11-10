@@ -49,7 +49,7 @@ sees *what it would cost*.
 scheduler logs and third-party probes. Each item is checked: its source,
 whether it covers the window it claims to cover, and whether it contradicts the
 other side's filings. A coverage gap is an outcome in its own right, and so is a
-conflict between the parties. Neither is quietly dropped.
+conflict between the parties.
 
 **3 · Seal it.** The admitted set is assembled into a signed bundle. Anyone
 holding that bundle can replay the evaluation and obtain the same result,
@@ -67,9 +67,10 @@ counterparty, or by a delegate acting under a grant it issued, and the record
 carries that signature; without a decision the case expires under the terms both
 parties signed before it opened.
 
-**6 · Price the remedy.** Credits owed under the contract are
-quoted from a separate commercial registry. The quote names an amount and
-settles nothing.
+**6 · Price the remedy.** Credits under the contract are
+quoted from a separate commercial registry. The quote names an amount; the
+counterparty's signed decision, or the expiry form the parties chose before
+the window opened, settles it.
 
 For the parties, the six weeks of reconciliation become an artifact both sides
 can independently re-derive, and they argue about *what the shared evidence
@@ -141,10 +142,10 @@ paper states what a reader can and cannot check independently.
 ## The standard
 
 **[SQCD-1 · Settlement Quality Compute
-Data](SQCD-1-settlement-quality-compute-data.pdf)** · 39 pages · version 1.0
+Data](SQCD-1-settlement-quality-compute-data.pdf)** · 47 pages · version 1.1
 
-Version 1.0 is identified by the SHA-256 digest of that file,
-`eee135a525bf073083834da23e584432999d95807ce0bc1a2edb4430037f9131`. Its errata
+Version 1.1 is identified by the SHA-256 digest of that file,
+`65b026d4eea0da653f647271779d47bc480bae514990dd258d50d6988cd2e7c4`. Its errata
 record, published against that digest under L6, is
 [`SQCD-1-errata.md`](SQCD-1-errata.md); L6.3 makes the record part of the
 standard.
@@ -201,7 +202,7 @@ interval no sample reached, whether two parties running it must reach one
 figure, and a version. ISO/IEC 19086-2 carries no version field, and a metric
 that can change under a fixed name defeats the standard's finality clauses.
 
-Annex 9 publishes the worked month and fourteen boundary cases as JSON fixtures
+Annex 9 publishes the worked month and thirty-one boundary cases as JSON fixtures
 with a digest manifest, and a counterparty can check an implementation's
 conformance claim against them without asking anyone.
 
@@ -212,7 +213,7 @@ one is tested in year four.
 Annex 3 works a month end to end — 69,120 subject-intervals, two filing parties,
 one disputed node — and shows the same samples producing $6,681.60 under one
 declared period function and $33,408.00 under another. Annex 8 lists all
-thirty-two terms an agreement has to fix, so a defect is an arming-time finding
+thirty-six terms an agreement has to fix, so a defect is an arming-time finding
 rather than a dispute-time discovery.
 
 The text is under CC BY-ND 4.0 and the forms, schemas, vectors and registry
@@ -220,7 +221,7 @@ entries under the MIT licence (`LICENSE.md`), so a counterparty can attach the
 standard to an agreement and an implementer can lift the machine-readable parts
 into code.
 
-**[SQCD-1 in brief](SQCD-1-in-brief.pdf)** · 3 pages · version 1.0
+**[SQCD-1 in brief](SQCD-1-in-brief.pdf)** · 3 pages · version 1.1
 
 It gives the record's fields, A to F, one line each, with the layer table, the
 timetable and the seven terms the parties fix, each pointing into the standard
@@ -266,9 +267,9 @@ comprises:
 | File | |
 |---|---|
 | `yang-signed-in-advance.pdf` | the paper |
-| `SQCD-1-settlement-quality-compute-data.pdf` | the standard, version 1.0 |
-| `SQCD-1-errata.md` | the errata record for version 1.0, with the digest it is published against |
-| `SQCD-1-in-brief.pdf` | the entry document, version 1.0 |
+| `SQCD-1-settlement-quality-compute-data.pdf` | the standard, version 1.1 |
+| `SQCD-1-errata.md` | the errata record for version 1.1, with the digest it is published against |
+| `SQCD-1-in-brief.pdf` | the entry document, version 1.1 |
 | `sqcd1-schemas/` | the record schemas Annex 5 names, as the reference implementation runs them, and a digest manifest |
 | `sqcd1-vectors/` | conformance vectors and a digest manifest |
 | `sqcd1-registry/` | the seven canonical period functions Annex 2.1 indexes, as `metric_registry_entry` objects, and a digest manifest |

@@ -1,5 +1,5 @@
 {
-  "sqcd1_vectors_version": "1.0",
+  "sqcd1_vectors_version": "1.1",
   "note": "Cases a conforming implementation must distinguish. Each states the input and the only conforming outcome.",
   "cases": [
     {
@@ -7,7 +7,7 @@
       "clause": "C5.2 / C5.5",
       "input": "an interval no Filing Party observed, every party whose Filing Plan required the observation having declared the gap under C1 through C4",
       "expect": "Unresolved: excluded from numerator and denominator; counted in the Unresolved Fraction; no fault recorded",
-      "must_not": "counted as delivered, or as not delivered, or attributed to a party"
+      "must_not": "counted as delivered, or as not delivered, or a fault recorded against a party"
     },
     {
       "id": "EV-02",
@@ -19,7 +19,7 @@
     {
       "id": "EV-03",
       "clause": "7.0.3",
-      "input": "a measurement whose expanded uncertainty exceeds the procedure's bound",
+      "input": "a measurement whose U/median exceeds the procedure's bound",
       "expect": "no reading; a BoundaryRecord with cause instrument-failure",
       "must_not": "a low reading, or evidence the field was below its floor"
     },
@@ -39,7 +39,7 @@
     },
     {
       "id": "EV-06",
-      "clause": "B7.3",
+      "clause": "B7.1 · Annex 8 row 14",
       "input": "a Profile naming L8 among the covered Layers",
       "expect": "the Profile cannot be armed",
       "must_not": "armed with L8 counting against the provider"
@@ -76,7 +76,7 @@
       "id": "EV-11",
       "clause": "H4 / 2.7",
       "input": "a material Divergence under a Profile selecting DR-02, with the two figures inside the bound",
-      "expect": "the arithmetic mean governs the quantity; the terminal state still comes from F2",
+      "expect": "the arithmetic mean governs the quantity; the terminal state comes from F2, or from I.1.1 where no decision is filed",
       "must_not": "a terminal state derived from the resolution"
     },
     {
@@ -99,6 +99,125 @@
       "input": "no Filing Party observed, both required to observe, neither declared",
       "expect": "each party bears its own fault under J1; the value follows the Profile's Annex 2.5 selection, read under 2.5.2",
       "must_not": "one fault shared between the parties, or no fault recorded"
+    },
+    {
+      "id": "EV-15",
+      "clause": "I.1.1 / F2",
+      "input": "the counterparty files an abstention under F2 and nothing else by the review deadline",
+      "expect": "the Case stays open until the deadline, then terminal state expired under I.1.1",
+      "must_not": "terminal state accepted, or a terminal state at the abstention"
+    },
+    {
+      "id": "EV-16",
+      "clause": "2.7 DR-03",
+      "input": "a material Divergence under DR-03 whose three readings are 99.0, 99.5 and 100.0",
+      "expect": "the mean of all three, 99.5, governs the quantity",
+      "must_not": "99.25 or 99.75"
+    },
+    {
+      "id": "EV-17",
+      "clause": "2.1.4",
+      "input": "F-01 over two Measured Subjects, one with zero eligible intervals and one with 100 eligible intervals, all conforming",
+      "expect": "no Period Figure; the evaluation returns requires-review naming eligible_interval_seconds_per_subject of the first subject; the Case proceeds under F2, or under I.1.1 where no Decision is filed",
+      "must_not": "a figure of 0 %, 50 % or 100 %, or a figure computed without the subject"
+    },
+    {
+      "id": "EV-18",
+      "clause": "Annex 2.5 EF-01",
+      "input": "under EF-01, an interval no Filing Party observed, one required party having declared nothing, and no measurement covering it filed by W+30",
+      "expect": "from W+30 excluded from numerator and denominator and counted in the Unresolved Fraction, the fault recorded against the party C5.4 names; every later figure takes it so",
+      "must_not": "counted as delivered or as not delivered, or left suspended after W+30"
+    },
+    {
+      "id": "EV-19",
+      "clause": "J2",
+      "input": "a Filing Party's first measurement of an interval, filed at W+35",
+      "expect": "enters the record marked late and is archived; no pass for the Window uses it",
+      "must_not": "used in any Period Figure for the Window"
+    },
+    {
+      "id": "EV-20",
+      "clause": "J2 / J1",
+      "input": "under EF-03, an interval no Filing Party observed by W+2; the required party files a conforming measurement of it at W+20",
+      "expect": "the interval is valued from that measurement in the figure identified by W+30; the evidence fault under J1 stands",
+      "must_not": "the interval kept as not delivered in that figure, or the fault removed"
+    },
+    {
+      "id": "EV-21",
+      "clause": "2.2.1 · Annex 8 row 33",
+      "input": "a Profile selecting MT-03 with F-01",
+      "expect": "the Profile cannot be armed",
+      "must_not": "armed"
+    },
+    {
+      "id": "EV-22",
+      "clause": "J1 · Annex 8 row 34",
+      "input": "a Profile selecting EF-07 and EF-03 for one obligation",
+      "expect": "the Profile cannot be armed",
+      "must_not": "armed"
+    },
+    {
+      "id": "EV-23",
+      "clause": "I.1.5",
+      "input": "a second credit Claim for the same obligation, adjusted Claim and pass, the first having ended rejected",
+      "expect": "the second credit Claim is not conforming; had the first ended withdrawn, the second would be admitted",
+      "must_not": "evaluated as a credit Claim, or a second credit for the same difference"
+    },
+    {
+      "id": "EV-24",
+      "clause": "2.1.4 / Annex 2.4 EX-03",
+      "input": "a Window with no Period Figure under 2.1.4 whose Case expires under EX-03",
+      "expect": "terminal state expired; EX-03 prices nothing; the record states that the amount is not computed under SQCD-1 and follows the agreement's terms identified under A7",
+      "must_not": "an amount computed under the remedy schedule, or terminal state accepted"
+    },
+    {
+      "id": "EV-25",
+      "clause": "G10 / 2.2.1",
+      "input": "under a Profile selecting MT-02, a Filing Plan modification setting a sample interval other than the A3 sample interval",
+      "expect": "the modification is not conforming and does not take effect; the party files under the Plan in force",
+      "must_not": "the modification taking effect at the opening of the next Window"
+    },
+    {
+      "id": "EV-26",
+      "clause": "2.1.4 / F-01 / F-03",
+      "input": "F-01 and F-03 over one Measured Subject with 100 eligible intervals, all observed by both Filing Parties and all not delivered",
+      "expect": "Period Figure 0 % under each function, priced under the remedy schedule as any other figure",
+      "must_not": "no Period Figure, or requires-review under 2.1.4"
+    },
+    {
+      "id": "EV-27",
+      "clause": "J2 / C5.5",
+      "input": "an interval Unresolved in the figure identified by W+30, and a first measurement of it filed at W+35",
+      "expect": "the measurement is archived; every figure for the Window keeps the interval Unresolved, with the same eligible denominator, fractions, materiality decision and conformance decision",
+      "must_not": "the interval moved to unilateral, or any fraction or decision changed"
+    },
+    {
+      "id": "EV-28",
+      "clause": "I.1.5",
+      "input": "a delivery Claim resting on the W+5 pass, whose remedy quote is $0; a Profile pass at W+20 with remedy quote $100, whose credit Claim ended accepted, or in a second branch expired under EX-03 with the $100 owed not yet paid; the figure identified by W+30 with remedy quote $150",
+      "expect": "in both branches the credit Claim on the W+30 figure is filed after the W+20 credit Claim is terminal, and its amount is $50",
+      "must_not": "$150, or $250 claimed across the two credit Claims"
+    },
+    {
+      "id": "EV-29",
+      "clause": "A6 / 2.2.1 / H3",
+      "input": "F-05 with MT-01 at 1 %, the Profile naming the customer as reference party; the customer's Period Figure 99 hours and the provider's 100 hours at W+5",
+      "expect": "at W+5 the band is 0.99 hours and the Divergence of 1 hour is material; a Divergence Event is filed at W+5",
+      "must_not": "a band taken from the provider's figure, or a materiality decision waiting for the delivery Claim"
+    },
+    {
+      "id": "EV-30",
+      "clause": "I.1.1 / F2",
+      "input": "a settlement policy with an accept quorum of two; one valid accept within its grant, and nothing else, filed by the review deadline",
+      "expect": "terminal state expired under I.1.1 at the deadline",
+      "must_not": "terminal state accepted, or the Case left open after the deadline"
+    },
+    {
+      "id": "EV-31",
+      "clause": "A6 / H3 / MT-05",
+      "input": "a Profile selecting MT-05 and naming no reference party; both Filing Parties' Period Figures 99.5 % at W+5",
+      "expect": "the Profile is armed; concordance under H3, and the equal value 99.5 % carries forward",
+      "must_not": "the Profile refused for want of a reference party, or a Divergence Event filed"
     }
   ]
 }

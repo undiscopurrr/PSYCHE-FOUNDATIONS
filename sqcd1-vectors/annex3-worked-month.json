@@ -1,15 +1,23 @@
 {
-  "sqcd1_vectors_version": "1.0",
+  "sqcd1_vectors_version": "1.1",
   "annex": "3",
-  "note": "Recomputed from the sample counts alone. A conforming implementation reproduces every figure below from `events` and `standard` with no other input.",
+  "note": "Recomputed from the sample counts and the standard terms below. A conforming implementation reproduces every figure below from `events` and `standard`, read with the inputs Annex 3 states. The five events cover disjoint intervals. Every other subject-interval was observed by both Filing Parties and is conforming at every covered Layer.",
   "standard": {
     "A2_period_function": "F-01",
     "A3_window_hours": 720,
+    "A3_window_start": "2026-06-01T00:00:00Z",
+    "A3_window_end": "2026-07-01T00:00:00Z",
+    "A3_edge_rule": "Samples straddling either edge are assigned to the Window containing their start.",
     "A3_sample_interval_s": 300,
+    "G3_filing_plan_sample_interval_s": {
+      "operator": 300,
+      "customer": 300
+    },
     "A5_threshold_pct": 99.9,
     "A6_materiality": {
       "form": "MT-02",
-      "parameter_intervals": 12
+      "parameter_intervals": 12,
+      "reference_party": "operator"
     },
     "A6_unresolved_ceiling": {
       "form": "UC-01",
@@ -39,6 +47,16 @@
     "H4_divergence_resolution": "DR-06",
     "I11_expiry_pricing": "EX-02",
     "B3_measured_subject": "node",
+    "B3_subjects": [
+      "N-01",
+      "N-02",
+      "N-03",
+      "N-04",
+      "N-05",
+      "N-06",
+      "N-07",
+      "N-08"
+    ],
     "B7_covered_layers": [
       "L2",
       "L3",
@@ -46,6 +64,7 @@
       "L6",
       "L7"
     ],
+    "B8_minimum_customer_observation": "Reachability of each subject at 300 s, plus the customer's own record of work submitted, started and completed",
     "J1_evidence_fault": {
       "form": "EF-04"
     },
@@ -95,7 +114,9 @@
       ],
       "intervals": 48,
       "class": "unilateral",
-      "observed_by": "operator"
+      "observed_by": "operator",
+      "operator_reading": "conforming",
+      "customer_declared_gap": false
     },
     "E4": {
       "subjects": [
@@ -113,14 +134,18 @@
       "intervals": 36,
       "class": "disputed",
       "layer": "L6",
-      "first_interval": "2026-06-21T02:00:00Z"
+      "first_interval": "2026-06-21T02:00:00Z",
+      "operator_reading": "conforming",
+      "customer_reading": "non-conforming"
     }
   },
   "expected": {
+    "intervals_per_subject": 8640,
     "total_subject_intervals": 69120,
     "a4_exclusions": 1152,
     "eligible_before_C5": 67968,
     "unresolved": 72,
+    "unilateral": 384,
     "eligible": 67896,
     "per_subject_eligible": {
       "N-01": 8343,
@@ -132,23 +157,50 @@
       "N-07": 8631,
       "N-08": 8631
     },
+    "per_subject_availability_operator": {
+      "N-01": 1.0,
+      "N-02": 1.0,
+      "N-03": 0.99137001,
+      "N-04": 1.0,
+      "N-05": 1.0,
+      "N-06": 1.0,
+      "N-07": 1.0,
+      "N-08": 1.0
+    },
+    "per_subject_availability_customer": {
+      "N-01": 1.0,
+      "N-02": 1.0,
+      "N-03": 0.99137001,
+      "N-04": 1.0,
+      "N-05": 0.99582899,
+      "N-06": 1.0,
+      "N-07": 1.0,
+      "N-08": 1.0
+    },
     "unresolved_fraction_pct": 0.105932,
     "unilateral_fraction_pct": 0.564972,
+    "unresolved_within_ceiling": true,
     "period_figure_operator_pct": 99.892125,
     "period_figure_customer_pct": 99.839987,
     "divergence_pp": 0.052138,
     "divergence_material": true,
     "first_diverging_interval": "2026-06-21T02:00:00Z",
+    "shortfall_intervals_agreed": 72,
+    "shortfall_intervals_disputed": 36,
+    "window_accelerator_hours": 46080,
     "window_fee_usd": 133632.0,
     "credit_operator_usd": 6681.6,
     "credit_customer_usd": 13363.2,
+    "disputed_amount_usd": 6681.6,
     "sigma_output": "requires-review",
     "terminal_state": null,
     "terminal_state_note": "No F2 decision is present in this vector. A conforming implementation reaches no terminal state from these inputs alone."
   },
   "alternate_period_functions": {
+    "F-04_aggregate_operator_pct": 99.893955,
+    "F-04_credit_operator_usd": 6681.6,
     "F-03_worst_subject_pct": 99.137001,
     "F-03_credit_usd": 33408.0
   },
-  "scope": "Counted intervals and a period function only. No Annex 7 reading appears in this vector. Every percentage is an exact ratio of integer interval counts and carries no expanded uncertainty; the six decimal places are the arithmetic of a division rather than a claim about instrument precision. A Window resting on measured values runs 7.0.2 and 7.0.2.1, which this vector does not exercise."
+  "scope": "Counted intervals and a period function only. No Annex 7 reading appears in this vector. Every Period Figure and fraction is computed exactly from integer interval counts and carries no expanded uncertainty; the six decimal places are the arithmetic of a division. A Window resting on measured values runs 7.0.2 and 7.0.2.1, which this vector does not exercise. Per-subject availabilities are rounded to eight decimals; the Period Figures are computed from the exact ratios."
 }

@@ -1,19 +1,19 @@
 {
   "schemaVersion": "1.0.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "PSYCHE",
   "profileScope": [
     "sqcd1.v1"
   ],
   "class": "canonical",
   "determinismConstraints": [
-    "one filed sample set yields one figure (2.1.2)",
+    "one filed sample set yields one figure, or under 2.1.4 the same named quantities in its place (2.1.2)",
     "canonical ordering of Measured Subjects and intervals",
     "no input outside the filed record"
   ],
   "missingDataBehavior": {
     "policy": "section-c",
-    "notes": "An interval without an observation is valued under C5; an Unresolved interval leaves numerator and denominator and is counted in the Unresolved Fraction."
+    "notes": "An interval eligible before C5 without an observation is valued under C5; an Unresolved interval leaves numerator and denominator and is counted in the Unresolved Fraction."
   },
   "rolloutState": "enforcing",
   "retirementPolicy": {
@@ -29,7 +29,7 @@
   "scale": "ratio",
   "algorithmReference": {
     "kind": "spec",
-    "ref": "SQCD-1 Version 1.0, Annex 2.1, F-05"
+    "ref": "SQCD-1 Version 1.1, Annex 2.1, F-05"
   },
   "numericRules": {
     "deterministic": true,
