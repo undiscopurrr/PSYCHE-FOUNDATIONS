@@ -1,5 +1,5 @@
 {
-  "sqcd1_vectors_version": "1.1",
+  "sqcd1_vectors_version": "1.2",
   "note": "Cases a conforming implementation must distinguish. Each states the input and the only conforming outcome.",
   "cases": [
     {
@@ -47,7 +47,7 @@
     {
       "id": "EV-07",
       "clause": "2.5.1",
-      "input": "J1 selecting EF-02 where the required evidence class is operator-held",
+      "input": "J1 selecting EF-02 where the provider's Filing Plan reads a covered Layer of the obligation",
       "expect": "the selection is refused at arming time",
       "must_not": "armed"
     },
@@ -122,13 +122,6 @@
       "must_not": "a figure of 0 %, 50 % or 100 %, or a figure computed without the subject"
     },
     {
-      "id": "EV-18",
-      "clause": "Annex 2.5 EF-01",
-      "input": "under EF-01, an interval no Filing Party observed, one required party having declared nothing, and no measurement covering it filed by W+30",
-      "expect": "from W+30 excluded from numerator and denominator and counted in the Unresolved Fraction, the fault recorded against the party C5.4 names; every later figure takes it so",
-      "must_not": "counted as delivered or as not delivered, or left suspended after W+30"
-    },
-    {
       "id": "EV-19",
       "clause": "J2",
       "input": "a Filing Party's first measurement of an interval, filed at W+35",
@@ -158,7 +151,7 @@
     },
     {
       "id": "EV-23",
-      "clause": "I.1.5",
+      "clause": "I.1.4",
       "input": "a second credit Claim for the same obligation, adjusted Claim and pass, the first having ended rejected",
       "expect": "the second credit Claim is not conforming; had the first ended withdrawn, the second would be admitted",
       "must_not": "evaluated as a credit Claim, or a second credit for the same difference"
@@ -193,7 +186,7 @@
     },
     {
       "id": "EV-28",
-      "clause": "I.1.5",
+      "clause": "I.1.4",
       "input": "a delivery Claim resting on the W+5 pass, whose remedy quote is $0; a Profile pass at W+20 with remedy quote $100, whose credit Claim ended accepted, or in a second branch expired under EX-03 with the $100 owed not yet paid; the figure identified by W+30 with remedy quote $150",
       "expect": "in both branches the credit Claim on the W+30 figure is filed after the W+20 credit Claim is terminal, and its amount is $50",
       "must_not": "$150, or $250 claimed across the two credit Claims"
@@ -218,6 +211,13 @@
       "input": "a Profile selecting MT-05 and naming no reference party; both Filing Parties' Period Figures 99.5 % at W+5",
       "expect": "the Profile is armed; concordance under H3, and the equal value 99.5 % carries forward",
       "must_not": "the Profile refused for want of a reference party, or a Divergence Event filed"
+    }
+  ],
+  "retired": [
+    {
+      "id": "EV-18",
+      "clause": "Annex 2.5 EF-01",
+      "note": "Retired in version 1.2 with EF-01, which Annex 2.5 no longer lists. The number is not reused."
     }
   ]
 }

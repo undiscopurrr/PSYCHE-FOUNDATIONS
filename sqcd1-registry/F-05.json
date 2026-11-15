@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "owner": "PSYCHE",
   "profileScope": [
     "sqcd1.v1"
@@ -18,7 +18,7 @@
   "rolloutState": "enforcing",
   "retirementPolicy": {
     "mode": "section-l",
-    "notes": "Retirement under L2 does not reach a Window already closed under the entry (L4); conformance established under it is permanent (L5)."
+    "notes": "Retirement takes effect when published and reaches only Profiles armed after it, which do not name the entry (L4); conformance established under it is permanent (L5)."
   },
   "metricId": "sqcd1.f05_delivered_hours",
   "purpose": "Delivered hours: the count of conforming Measured-Subject-hours in the Window, undivided.",
@@ -29,7 +29,7 @@
   "scale": "ratio",
   "algorithmReference": {
     "kind": "spec",
-    "ref": "SQCD-1 Version 1.1, Annex 2.1, F-05"
+    "ref": "SQCD-1 Version 1.2, Annex 2.1, F-05"
   },
   "numericRules": {
     "deterministic": true,

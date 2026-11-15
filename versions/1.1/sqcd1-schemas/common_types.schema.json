@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:psyche:schema:common_types:1.0.0",
+  "title": "PSYCHE common truth types",
+  "$defs": {
+    "sha256Digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "signatureHex": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64,256}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "profileId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z0-9_]+)*\\.v[1-9][0-9]*$"
+    },
+    "token": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_\\-\\.]{0,63}$"
+    },
+    "policyLabelArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/policyLabel"
+      },
+      "uniqueItems": true,
+      "description": "The policy-label vocabulary."
+    },
+    "rolloutStateToken": {
+      "type": "string",
+      "enum": [
+        "disabled",
+        "shadow",
+        "advisory",
+        "enforcing",
+        "deprecated"
+      ],
+      "description": "The rollout-state vocabulary."
+    },
+    "boundedReasonCodeArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9_\\-]{2,64}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "windowPointer": {
+      "type": "object",
+      "required": [
+        "startEventTime",
+        "endEventTime",
+        "inclusive"
+      ],
+      "properties": {
+        "startEventTime": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "endEventTime": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "startSeq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "endSeq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "inclusive": {
+          "type": "boolean"
+        },
+        "eventCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "signerContext": {
+      "type": "object",
+      "required": [
+        "scheme",
+        "keyId"
+      ],
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "enum": [
+            "ed25519",
+            "ecdsa-p256",
+            "detached-placeholder"
+          ]
+        },
+        "keyId": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128
+        },
+        "signature": {
+          "$ref": "#/$defs/signatureHex"
+        },
+        "signedFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "digestRef": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "sha256"
+        },
+        "digest": {
+          "$ref": "#/$defs/sha256Digest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "policyLabel": {
+      "type": "string",
+      "enum": [
+        "truth_required",
+        "capsule_export_safe",
+        "customer_export_safe",
+        "public_demo_safe",
+        "internal_only",
+        "restricted_personal",
+        "restricted_biometric",
+        "regulated_export_controlled"
+      ],
+      "description": "The policy-label vocabulary."
+    }
+  }
+}

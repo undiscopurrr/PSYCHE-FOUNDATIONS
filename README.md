@@ -142,10 +142,10 @@ paper states what a reader can and cannot check independently.
 ## The standard
 
 **[SQCD-1 · Settlement Quality Compute
-Data](SQCD-1-settlement-quality-compute-data.pdf)** · 47 pages · version 1.1
+Data](SQCD-1-settlement-quality-compute-data.pdf)** · 44 pages · version 1.2
 
-Version 1.1 is identified by the SHA-256 digest of that file,
-`65b026d4eea0da653f647271779d47bc480bae514990dd258d50d6988cd2e7c4`. Its errata
+Version 1.2 is identified by the SHA-256 digest of that file,
+`6e3a25e0c0bb292c2ec76acca3279cfce9472764bde5a278ab648f0617e14de4`. Its errata
 record, published against that digest under L6, is
 [`SQCD-1-errata.md`](SQCD-1-errata.md); L6.3 makes the record part of the
 standard.
@@ -202,7 +202,7 @@ interval no sample reached, whether two parties running it must reach one
 figure, and a version. ISO/IEC 19086-2 carries no version field, and a metric
 that can change under a fixed name defeats the standard's finality clauses.
 
-Annex 9 publishes the worked month and thirty-one boundary cases as JSON fixtures
+Annex 9 publishes the worked month and thirty boundary cases as JSON fixtures
 with a digest manifest, and a counterparty can check an implementation's
 conformance claim against them without asking anyone.
 
@@ -213,7 +213,7 @@ one is tested in year four.
 Annex 3 works a month end to end — 69,120 subject-intervals, two filing parties,
 one disputed node — and shows the same samples producing $6,681.60 under one
 declared period function and $33,408.00 under another. Annex 8 lists all
-thirty-six terms an agreement has to fix, so a defect is an arming-time finding
+thirty-seven terms an agreement has to fix, so a defect is an arming-time finding
 rather than a dispute-time discovery.
 
 The text is under CC BY-ND 4.0 and the forms, schemas, vectors and registry
@@ -221,7 +221,7 @@ entries under the MIT licence (`LICENSE.md`), so a counterparty can attach the
 standard to an agreement and an implementer can lift the machine-readable parts
 into code.
 
-**[SQCD-1 in brief](SQCD-1-in-brief.pdf)** · 3 pages · version 1.1
+**[SQCD-1 in brief](SQCD-1-in-brief.pdf)** · 3 pages · version 1.2
 
 It gives the record's fields, A to F, one line each, with the layer table, the
 timetable and the seven terms the parties fix, each pointing into the standard
@@ -267,13 +267,16 @@ comprises:
 | File | |
 |---|---|
 | `yang-signed-in-advance.pdf` | the paper |
-| `SQCD-1-settlement-quality-compute-data.pdf` | the standard, version 1.1 |
-| `SQCD-1-errata.md` | the errata record for version 1.1, with the digest it is published against |
-| `SQCD-1-in-brief.pdf` | the entry document, version 1.1 |
+| `SQCD-1-settlement-quality-compute-data.pdf` | the standard, version 1.2 |
+| `SQCD-1-errata.md` | the errata record for version 1.2, with the digest it is published against |
+| `SQCD-1-in-brief.pdf` | the entry document, version 1.2 |
 | `sqcd1-schemas/` | the record schemas Annex 5 names, as the reference implementation runs them, and a digest manifest |
 | `sqcd1-vectors/` | conformance vectors and a digest manifest |
 | `sqcd1-registry/` | the seven canonical period functions Annex 2.1 indexes, as `metric_registry_entry` objects, and a digest manifest |
 | `LICENSE.md` | CC BY-ND 4.0 for the standard's text, the brief and the paper; MIT for `sqcd1-schemas/`, `sqcd1-vectors/`, `sqcd1-registry/` and Annex 1's Filing Plan form |
+
+Version 1.1 remains here as issued, with its errata record and digest manifests, in
+[`versions/1.1/`](versions/1.1/).
 
 ---
 

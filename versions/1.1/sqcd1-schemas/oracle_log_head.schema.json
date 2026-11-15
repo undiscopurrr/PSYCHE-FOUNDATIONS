@@ -1,0 +1,27 @@
+{
+  "$id": "urn:psyche:schema:oracle_log_head:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "head_index": {
+      "type": "integer"
+    },
+    "head_issuance_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "oracle_log_head_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "oracle_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "oracle_ref",
+    "oracle_log_head_digest"
+  ],
+  "title": "Oracle log head binding (Cases Spec Annex A.8)",
+  "type": "object"
+}

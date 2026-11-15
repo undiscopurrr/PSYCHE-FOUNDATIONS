@@ -1,5 +1,5 @@
 {
-  "sqcd1_vectors_version": "1.1",
+  "sqcd1_vectors_version": "1.2",
   "annex": "3",
   "note": "Recomputed from the sample counts and the standard terms below. A conforming implementation reproduces every figure below from `events` and `standard`, read with the inputs Annex 3 states. The five events cover disjoint intervals. Every other subject-interval was observed by both Filing Parties and is conforming at every covered Layer.",
   "standard": {

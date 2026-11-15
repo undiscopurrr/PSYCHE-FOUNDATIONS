@@ -1,0 +1,100 @@
+{
+  "$id": "urn:psyche:schema:evidence_receipt:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "captured_at": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "claim_ref": {
+      "type": "string"
+    },
+    "conditions": {
+      "additionalProperties": false,
+      "properties": {
+        "driver_version": {
+          "type": "string"
+        },
+        "load_state": {
+          "type": "string"
+        },
+        "measurement_window_exclusive": {
+          "type": "boolean"
+        },
+        "runtime_version": {
+          "type": "string"
+        },
+        "wall_clock_start": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "coverage_factor_micro": {
+      "type": "integer"
+    },
+    "evidence_receipt_id": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "expanded_uncertainty_micro": {
+      "type": "integer"
+    },
+    "grade_class_field": {
+      "type": "string"
+    },
+    "median_micro": {
+      "type": "integer"
+    },
+    "normalized_evidence_digest": {
+      "type": "string"
+    },
+    "procedure_id": {
+      "type": "string"
+    },
+    "raw_evidence_digest": {
+      "type": "string"
+    },
+    "redaction_applied": {
+      "type": "boolean"
+    },
+    "runs_micro": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "scaled_median_absolute_deviation_micro": {
+      "type": "integer"
+    },
+    "source_identity_ref": {
+      "type": "string"
+    },
+    "source_signature_ref": {
+      "type": "string"
+    },
+    "source_system_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_receipt_id",
+    "case_id",
+    "claim_ref",
+    "evidence_type",
+    "source_system_id",
+    "source_identity_ref",
+    "source_signature_ref",
+    "redaction_applied",
+    "raw_evidence_digest",
+    "normalized_evidence_digest",
+    "captured_at"
+  ],
+  "title": "Evidence Receipt (Cases Spec §6)",
+  "type": "object"
+}
