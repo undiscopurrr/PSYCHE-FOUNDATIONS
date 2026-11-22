@@ -170,8 +170,8 @@ before the window opens. Where confidential computing is enabled, the
 accelerator model and a separate `isolation_attested` field are V2, and firmware
 floors are V2 wherever the report's measurements check against the
 manufacturer's published reference values. Exclusive possession of a die stays
-V4; A8.10 of the standard states the field assignments and what `tenancy` does
-and does not cover.
+V4; A8.10 of the standard states the field assignments, and A8.11 what
+`tenancy` does and does not cover.
 
 Delivery is a conjunction of eight layers, from facility to tenant workload. An
 interval counts as delivered only where every covered layer was simultaneously
