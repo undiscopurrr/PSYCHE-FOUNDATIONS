@@ -276,7 +276,8 @@ comprises:
 | `LICENSE.md` | CC BY-ND 4.0 for the standard's text, the brief and the paper; MIT for `sqcd1-schemas/`, `sqcd1-vectors/`, `sqcd1-registry/` and Annex 1's Filing Plan form |
 
 Version 1.1 remains here as issued, with its errata record and digest manifests, in
-[`versions/1.1/`](versions/1.1/).
+[`versions/1.1/`](versions/1.1/), and Version 1.0 likewise in
+[`versions/1.0/`](versions/1.0/).
 
 ---
 
